@@ -11,31 +11,43 @@
     {
         public static void Main()
         {
+            RunTimer();
+        }
+
+        private static void GetUserSettings(out int numOfReps, out int numOfExercises, out int numOfSeries, out int restTimeBetweenSeries, out int restTimeBetweenExercises, out int repTime)
+        {
             Console.Write("Enter num of reps: ");
-            int numOfReps = int.Parse(Console.ReadLine());
+            numOfReps = int.Parse(Console.ReadLine());
 
             Console.Write("Enter num of exercises: ");
-            int numOfExercises = int.Parse(Console.ReadLine());
+            numOfExercises = int.Parse(Console.ReadLine());
 
             Console.Write("Enter num of series: ");
-            int numOfSeries = int.Parse(Console.ReadLine());
+            numOfSeries = int.Parse(Console.ReadLine());
 
             // in seconds
             Console.Write("Rest time between series (in seconds): ");
-            int restTimeBetweenSeries = int.Parse(Console.ReadLine());
+            restTimeBetweenSeries = int.Parse(Console.ReadLine());
 
             Console.Write("Rest time between Exercises (in seconds): ");
-            int restTimeBetweenExercises = int.Parse(Console.ReadLine());
+            restTimeBetweenExercises = int.Parse(Console.ReadLine());
 
             Console.Write("Aproximate time of repetition (in seconds): ");
-            int repTime = int.Parse(Console.ReadLine());
+            repTime = int.Parse(Console.ReadLine());
             // int serieTime = repTime * numOfReps;
-
-            RunTimer(numOfReps, numOfExercises, numOfSeries, restTimeBetweenSeries, restTimeBetweenExercises, repTime);
         }
 
-        private static void RunTimer(int numOfReps, int numOfExercises, int numOfSeries, int restTimeBetweenSeries, int restTimeBetweenExercises, int repTime)
+        private static void RunTimer()
         {
+
+            int numOfReps;
+            int numOfExercises;
+            int numOfSeries;
+            int restTimeBetweenSeries;
+            int restTimeBetweenExercises;
+            int repTime;
+
+            GetUserSettings(out numOfReps, out numOfExercises, out numOfSeries, out restTimeBetweenSeries, out restTimeBetweenExercises, out repTime);
 
             Console.WriteLine("Starting the timer...");
 
