@@ -1,11 +1,7 @@
 ﻿namespace WorkoutTimerCSharp
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading;
-    using System.Threading.Tasks;
 
     public class WorkOutTimer
     {
@@ -43,36 +39,38 @@
             int numOfReps;
             int numOfExercises;
             int numOfSeries;
+
             int restTimeBetweenSeries;
             int restTimeBetweenExercises;
+
             int repTime;
 
             GetUserSettings(out numOfReps, out numOfExercises, out numOfSeries, out restTimeBetweenSeries, out restTimeBetweenExercises, out repTime);
 
             Console.WriteLine("Starting the timer...");
 
-            for (int i = 0; i < numOfExercises; i++)
+            for (int exerciseNumber = 0; exerciseNumber < numOfExercises; exerciseNumber++)
             {
-                Console.WriteLine("Exercise number {0}", i + 1);
+                Console.WriteLine("Exercise number {0}", exerciseNumber + 1);
 
-                for (int j = 0; j < numOfSeries; j++)
+                for (int serieNumber = 0; serieNumber < numOfSeries; serieNumber++)
                 {
-                    Console.WriteLine("Serie number {0}", j + 1);
+                    Console.WriteLine("Serie number {0}", serieNumber + 1);
 
-                    for (int k = 0; k < numOfReps; k++)
+                    for (int repetitionNumber = 0; repetitionNumber < numOfReps; repetitionNumber++)
                     {
                         Thread.Sleep(repTime * 1000);
-                        Console.WriteLine(k + 1);
+                        Console.WriteLine(repetitionNumber + 1);
                     }
 
-                    if (j < numOfSeries - 1)
+                    if (serieNumber < numOfSeries - 1)
                     {
                         Console.WriteLine("Resting between series...");
                         Thread.Sleep(restTimeBetweenSeries * 1000);
                     }
                 }
 
-                if (i < numOfSeries - 1)
+                if (exerciseNumber < numOfExercises - 1)
                 {
                     Console.WriteLine("Resting between exercises...");
                     Thread.Sleep(restTimeBetweenExercises * 1000);
