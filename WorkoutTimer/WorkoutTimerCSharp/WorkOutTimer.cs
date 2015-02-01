@@ -5,6 +5,9 @@
 
     public class WorkOutTimer
     {
+        private const string TrainingTimeSong = @"E:/MyMusicFile.mp3";
+        private const string RestTimeSong = @"E:/MyMusicFileResting.mp3";
+
         public static void Main()
         {
             RunTimer();
@@ -21,9 +24,9 @@
             //Thread.Sleep(20000);
         }
 
-        private static void GetUserSettings(out int numOfReps, out int numOfExercises, out int numOfSeries, out int restTimeBetweenSeries, out int restTimeBetweenExercises, out int repTime)
+        private static void GetUserSettings(out int numOfReps, out int numOfExercises, out int numOfSeries, 
+            out int restTimeBetweenSeries, out int restTimeBetweenExercises, out int repTime)
         {
-            bool wrongEntry = true;
             numOfReps = 10;
             numOfExercises = 3;
             numOfSeries = 3;
@@ -48,7 +51,6 @@
             int.TryParse(Console.ReadLine(), out numOfExercises);
             if (numOfExercises < 1)
             {
-
                 numOfExercises = 3;
             }
 
@@ -59,7 +61,6 @@
             int.TryParse(Console.ReadLine(), out numOfSeries);
             if (numOfSeries < 1)
             {
-
                 numOfSeries = 3;
             }
 
@@ -71,7 +72,6 @@
             int.TryParse(Console.ReadLine(), out restTimeBetweenSeries);
             if (restTimeBetweenSeries < 1)
             {
-
                 restTimeBetweenSeries = 30;
             }
 
@@ -82,7 +82,6 @@
             int.TryParse(Console.ReadLine(), out restTimeBetweenExercises);
             if (restTimeBetweenExercises < 1)
             {
-
                 restTimeBetweenExercises = 60;
             }
 
@@ -93,13 +92,24 @@
             int.TryParse(Console.ReadLine(), out repTime);
             if (repTime < 1)
             {
-
                 repTime = 3;
             }
 
             Console.WriteLine(repTime + " seconds repetion time chosen.");
             Console.WriteLine();
             // int serieTime = repTime * numOfReps;
+        }
+
+        private static void CountDown(int time)
+        {
+            for (int i = 0; i < time; i++)
+            {
+                if (i >= time - 3 )
+                {
+                    Console.Beep(500,50);
+                }
+                Thread.Sleep(1000);
+            }
         }
 
         private static void RunTimer()
@@ -132,8 +142,8 @@
             Console.WriteLine("Starting the timer...");
             Console.WriteLine("Playing file!");
 
-            trainingPlayer.open(@"E:/MyMusicFile.mp3");
-            restingPlayer.open(@"E:/MyMusicFileResting.mp3");
+            trainingPlayer.open(TrainingTimeSong);
+            restingPlayer.open(RestTimeSong);
 
             for (int exerciseNumber = 0; exerciseNumber < numOfExercises; exerciseNumber++)
             {
@@ -161,7 +171,7 @@
                         restingPlayer.play();
 
                         Console.WriteLine("Resting between series...");
-                        Thread.Sleep(restTimeBetweenSeries * 1000);
+                        CountDown(restTimeBetweenSeries);
                     }
                 }
 
@@ -171,7 +181,7 @@
                     restingPlayer.play();
 
                     Console.WriteLine("Resting between exercises...");
-                    Thread.Sleep(restTimeBetweenExercises * 1000);
+                    CountDown(restTimeBetweenExercises);
                 }
             }
 
