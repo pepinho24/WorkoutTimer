@@ -3,16 +3,18 @@
     using System;
     using System.Runtime.InteropServices;
     using System.Text;
+    using WMPLib;
 
     public class MusicPlayer
     {
         [DllImport("winmm.dll")]
         private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength, int hwndCallback);
-        private WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-
+        private WindowsMediaPlayer wplayer = new WindowsMediaPlayer();
+        
 
         public void open(string file)
         {
+            wplayer.settings.autoStart = false;
             wplayer.URL = file;
         }
 

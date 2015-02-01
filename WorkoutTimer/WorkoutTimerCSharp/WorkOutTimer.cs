@@ -58,7 +58,8 @@
 
             GetUserSettings(out numOfReps, out numOfExercises, out numOfSeries, out restTimeBetweenSeries, out restTimeBetweenExercises, out repTime);
 
-            var player = new MusicPlayer();
+            var trainingPlayer = new MusicPlayer();
+            var restingPlayer = new MusicPlayer();
 
             //player.open(@"E:/MyMusicFile.mp3");
             //Console.WriteLine("Playing file!");
@@ -73,17 +74,22 @@
             Console.WriteLine("Starting the timer...");
             Console.WriteLine("Playing file!");
             
-            player.open(@"E:/MyMusicFile.mp3");
+            trainingPlayer.open(@"E:/MyMusicFile.mp3");
+            restingPlayer.open(@"E:/MyMusicFileResting.mp3"); 
             
             for (int exerciseNumber = 0; exerciseNumber < numOfExercises; exerciseNumber++)
             {
                 Console.WriteLine("Exercise number {0}", exerciseNumber + 1);
 
+                restingPlayer.pause();
+                trainingPlayer.play();
 
                 for (int serieNumber = 0; serieNumber < numOfSeries; serieNumber++)
                 {
                     Console.WriteLine("Serie number {0}", serieNumber + 1);
-                    player.play();
+
+                    restingPlayer.pause();
+                    trainingPlayer.play();
 
                     for (int repetitionNumber = 0; repetitionNumber < numOfReps; repetitionNumber++)
                     {
@@ -93,7 +99,9 @@
 
                     if (serieNumber < numOfSeries - 1)
                     {
-                        player.pause();
+                        trainingPlayer.pause();
+                        restingPlayer.play();
+
                         Console.WriteLine("Resting between series...");
                         Thread.Sleep(restTimeBetweenSeries * 1000);
                     }
@@ -101,7 +109,9 @@
 
                 if (exerciseNumber < numOfExercises - 1)
                 {
-                    player.pause();
+                    trainingPlayer.pause();
+                    restingPlayer.play();
+
                     Console.WriteLine("Resting between exercises...");
                     Thread.Sleep(restTimeBetweenExercises * 1000);
                 }
