@@ -15,6 +15,7 @@
         public void open(string file)
         {
             wplayer.settings.autoStart = false;
+            wplayer.settings.setMode("loop", true);
             wplayer.URL = file;
         }
 

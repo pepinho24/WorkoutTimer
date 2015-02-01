@@ -23,24 +23,82 @@
 
         private static void GetUserSettings(out int numOfReps, out int numOfExercises, out int numOfSeries, out int restTimeBetweenSeries, out int restTimeBetweenExercises, out int repTime)
         {
-            Console.Write("Enter num of reps: ");
-            numOfReps = int.Parse(Console.ReadLine());
+            bool wrongEntry = true;
+            numOfReps = 10;
+            numOfExercises = 3;
+            numOfSeries = 3;
 
-            Console.Write("Enter num of exercises: ");
-            numOfExercises = int.Parse(Console.ReadLine());
+            restTimeBetweenSeries = 30;
+            restTimeBetweenExercises = 60;
+            repTime = 3;
+
+
+            Console.Write("Enter num of reps (default is 10): ");
+            int.TryParse(Console.ReadLine(), out numOfReps);
+            if (numOfReps < 1)
+            {
+                
+                numOfReps = 10;
+            }
+            Console.WriteLine(numOfReps + " reps chosen.");
+            Console.WriteLine();
+
+
+            Console.Write("Enter num of exercises (default is 3): ");
+            int.TryParse(Console.ReadLine(), out numOfExercises);
+            if (numOfExercises < 1)
+            {
+
+                numOfExercises = 3;
+            }
+
+            Console.WriteLine(numOfExercises + " exercises chosen.");
+            Console.WriteLine();
 
             Console.Write("Enter num of series: ");
-            numOfSeries = int.Parse(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out numOfSeries);
+            if (numOfSeries < 1)
+            {
+
+                numOfSeries = 3;
+            }
+
+            Console.WriteLine(numOfSeries + " series chosen.");
+            Console.WriteLine();
 
             // in seconds
-            Console.Write("Rest time between Series (in seconds): ");
-            restTimeBetweenSeries = int.Parse(Console.ReadLine());
+            Console.Write("Rest time between Series (in seconds, default is 30): ");
+            int.TryParse(Console.ReadLine(), out restTimeBetweenSeries);
+            if (restTimeBetweenSeries < 1)
+            {
 
-            Console.Write("Rest time between Exercises (in seconds): ");
-            restTimeBetweenExercises = int.Parse(Console.ReadLine());
+                restTimeBetweenSeries = 30;
+            }
 
-            Console.Write("Approximate time of Repetition (in seconds): ");
-            repTime = int.Parse(Console.ReadLine());
+            Console.WriteLine(restTimeBetweenSeries + " seconds rest time between series chosen.");
+            Console.WriteLine();
+
+            Console.Write("Rest time between Exercises (in seconds, default is 60): ");
+            int.TryParse(Console.ReadLine(), out restTimeBetweenExercises);
+            if (restTimeBetweenExercises < 1)
+            {
+
+                restTimeBetweenExercises = 60;
+            }
+
+            Console.WriteLine(restTimeBetweenExercises + " seconds rest time between exercises chosen.");
+            Console.WriteLine();
+
+            Console.Write("Approximate time of Repetition (in seconds, default is 3): ");
+            int.TryParse(Console.ReadLine(), out repTime);
+            if (repTime < 1)
+            {
+
+                repTime = 3;
+            }
+
+            Console.WriteLine(repTime + " seconds repetion time chosen.");
+            Console.WriteLine();
             // int serieTime = repTime * numOfReps;
         }
 
@@ -73,10 +131,10 @@
 
             Console.WriteLine("Starting the timer...");
             Console.WriteLine("Playing file!");
-            
+
             trainingPlayer.open(@"E:/MyMusicFile.mp3");
-            restingPlayer.open(@"E:/MyMusicFileResting.mp3"); 
-            
+            restingPlayer.open(@"E:/MyMusicFileResting.mp3");
+
             for (int exerciseNumber = 0; exerciseNumber < numOfExercises; exerciseNumber++)
             {
                 Console.WriteLine("Exercise number {0}", exerciseNumber + 1);
