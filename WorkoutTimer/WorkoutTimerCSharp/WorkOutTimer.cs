@@ -7,7 +7,18 @@
     {
         public static void Main()
         {
-            RunTimer();
+           // RunTimer();
+            var player = new MusicPlayer();
+
+            player.open(@"E:/MyMusicFile.mp3");
+            Console.WriteLine("Playing file!");
+            Thread.Sleep(20000);
+            player.pause();
+            Console.WriteLine("Paused!");
+            Thread.Sleep(2000);
+            player.play();
+            Console.WriteLine("Playing again!");
+            Thread.Sleep(20000);
         }
 
         private static void GetUserSettings(out int numOfReps, out int numOfExercises, out int numOfSeries, out int restTimeBetweenSeries, out int restTimeBetweenExercises, out int repTime)
@@ -22,13 +33,13 @@
             numOfSeries = int.Parse(Console.ReadLine());
 
             // in seconds
-            Console.Write("Rest time between series (in seconds): ");
+            Console.Write("Rest time between Series (in seconds): ");
             restTimeBetweenSeries = int.Parse(Console.ReadLine());
 
             Console.Write("Rest time between Exercises (in seconds): ");
             restTimeBetweenExercises = int.Parse(Console.ReadLine());
 
-            Console.Write("Aproximate time of repetition (in seconds): ");
+            Console.Write("Approximate time of Repetition (in seconds): ");
             repTime = int.Parse(Console.ReadLine());
             // int serieTime = repTime * numOfReps;
         }
