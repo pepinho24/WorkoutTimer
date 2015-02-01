@@ -11,17 +11,6 @@
         public static void Main()
         {
             RunTimer();
-            //var player = new MusicPlayer();
-
-            //player.open(@"E:/MyMusicFile.mp3");
-            //Console.WriteLine("Playing file!");
-            //Thread.Sleep(20000);
-            //player.pause();
-            //Console.WriteLine("Paused!");
-            //Thread.Sleep(2000);
-            //player.play();
-            //Console.WriteLine("Playing again!");
-            //Thread.Sleep(20000);
         }
 
         private static void GetUserSettings(out int numOfReps, out int numOfExercises, out int numOfSeries, 
@@ -35,7 +24,6 @@
             restTimeBetweenExercises = 60;
             repTime = 3;
 
-
             Console.Write("Enter num of reps (default is 10): ");
             int.TryParse(Console.ReadLine(), out numOfReps);
             if (numOfReps < 1)
@@ -43,6 +31,7 @@
                 
                 numOfReps = 10;
             }
+
             Console.WriteLine(numOfReps + " reps chosen.");
             Console.WriteLine();
 
@@ -97,7 +86,6 @@
 
             Console.WriteLine(repTime + " seconds repetion time chosen.");
             Console.WriteLine();
-            // int serieTime = repTime * numOfReps;
         }
 
         private static void CountDown(int time)
@@ -108,13 +96,13 @@
                 {
                     Console.Beep(500,50);
                 }
+
                 Thread.Sleep(1000);
             }
         }
 
         private static void RunTimer()
         {
-
             int numOfReps;
             int numOfExercises;
             int numOfSeries;
@@ -129,18 +117,7 @@
             var trainingPlayer = new MusicPlayer();
             var restingPlayer = new MusicPlayer();
 
-            //player.open(@"E:/MyMusicFile.mp3");
-            //Console.WriteLine("Playing file!");
-            //Thread.Sleep(20000);
-            //player.pause();
-            //Console.WriteLine("Paused!");
-            //Thread.Sleep(2000);
-            //player.play();
-            //Console.WriteLine("Playing again!");
-            //Thread.Sleep(20000);
-
             Console.WriteLine("Starting the timer...");
-            Console.WriteLine("Playing file!");
 
             trainingPlayer.open(TrainingTimeSong);
             restingPlayer.open(RestTimeSong);
@@ -186,6 +163,8 @@
             }
 
             Console.WriteLine("Workout Complete!");
+            trainingPlayer.stop();
+            restingPlayer.stop();
         }
     }
 }

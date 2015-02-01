@@ -7,11 +7,8 @@
 
     public class MusicPlayer
     {
-        [DllImport("winmm.dll")]
-        private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength, int hwndCallback);
         private WindowsMediaPlayer wplayer = new WindowsMediaPlayer();
         
-
         public void open(string file)
         {
             wplayer.settings.autoStart = false;
@@ -33,7 +30,6 @@
         public void stop()
         {
             wplayer.controls.stop();
-           // wplayer.playState = WMPLib.WMPPlayState.wmppsStopped;
         }
     }
 }
