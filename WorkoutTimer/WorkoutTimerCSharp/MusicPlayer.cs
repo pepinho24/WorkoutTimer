@@ -5,7 +5,7 @@
     using System.Text;
     using WMPLib;
 
-    public class MusicPlayer
+    public class MusicPlayer : WorkoutTimerCSharp.IMusicPlayer
     {
         private WindowsMediaPlayer wplayer = new WindowsMediaPlayer();
         

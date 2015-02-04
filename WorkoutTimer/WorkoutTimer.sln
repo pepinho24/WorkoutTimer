@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutTimerCSharp", "WorkoutTimerCSharp\WorkoutTimerCSharp.csproj", "{D83E3698-DDBE-4FCC-A431-E27691F25E7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutTimerMVC", "WorkoutTimerMVC\WorkoutTimerMVC.csproj", "{92B523E9-F0C0-4E74-806B-89B8F2090DD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D83E3698-DDBE-4FCC-A431-E27691F25E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D83E3698-DDBE-4FCC-A431-E27691F25E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D83E3698-DDBE-4FCC-A431-E27691F25E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92B523E9-F0C0-4E74-806B-89B8F2090DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92B523E9-F0C0-4E74-806B-89B8F2090DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92B523E9-F0C0-4E74-806B-89B8F2090DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92B523E9-F0C0-4E74-806B-89B8F2090DD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
